@@ -363,6 +363,15 @@ python app.py
 
 ---
 
+
+## 🔗 External Resources
+
+เราได้จัดเตรียมช่องทางสำหรับการศึกษาโค้ดและการใช้งานระบบไว้ดังนี้ครับ:
+
+*   **💻 Implementation Details:** ดูขั้นตอนการทำ Pipeline และการทดลองทั้งหมดได้ที่ [Kaggle Notebook](https://www.kaggle.com/code/duckermaster/niti-liability-llm)
+*   **⚖️ Live Demo:** ทดลองใช้งานระบบวิเคราะห์คดีได้ที่ [Hugging Face Space](https://huggingface.co/spaces/DuckerMaster/niti-liability-llm)
+
+
 ## License
 
 โปรเจกต์นี้เผยแพร่ภายใต้ **MIT License**
