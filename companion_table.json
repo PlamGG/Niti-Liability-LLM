@@ -1,0 +1,453 @@
+{
+  "288": {
+    "suggest_if_missing": [],
+    "freq": 198,
+    "top_pairs": {}
+  },
+  "83": {
+    "suggest_if_missing": [],
+    "freq": 115,
+    "top_pairs": {}
+  },
+  "63": {
+    "suggest_if_missing": [],
+    "freq": 2,
+    "top_pairs": {}
+  },
+  "290": {
+    "suggest_if_missing": [],
+    "freq": 15,
+    "top_pairs": {}
+  },
+  "59P2": {
+    "suggest_if_missing": [
+      "288",
+      "80"
+    ],
+    "freq": 49,
+    "top_pairs": {
+      "288": 0.673,
+      "80": 0.592
+    }
+  },
+  "340": {
+    "suggest_if_missing": [],
+    "freq": 10,
+    "top_pairs": {}
+  },
+  "1(1)": {
+    "suggest_if_missing": [
+      "334"
+    ],
+    "freq": 68,
+    "top_pairs": {
+      "334": 0.559
+    }
+  },
+  "80": {
+    "suggest_if_missing": [
+      "288"
+    ],
+    "freq": 108,
+    "top_pairs": {
+      "288": 0.639
+    }
+  },
+  "59P5": {
+    "suggest_if_missing": [
+      "59P4"
+    ],
+    "freq": 3,
+    "top_pairs": {
+      "59P4": 0.667
+    }
+  },
+  "295": {
+    "suggest_if_missing": [],
+    "freq": 25,
+    "top_pairs": {}
+  },
+  "289(2)": {
+    "suggest_if_missing": [
+      "80"
+    ],
+    "freq": 11,
+    "top_pairs": {
+      "80": 0.909
+    }
+  },
+  "289(4)": {
+    "suggest_if_missing": [],
+    "freq": 40,
+    "top_pairs": {}
+  },
+  "62P3": {
+    "suggest_if_missing": [
+      "83",
+      "289(4)"
+    ],
+    "freq": 1,
+    "top_pairs": {
+      "83": 1.0,
+      "289(4)": 1.0
+    }
+  },
+  "59P3": {
+    "suggest_if_missing": [
+      "288"
+    ],
+    "freq": 2,
+    "top_pairs": {
+      "288": 1.0
+    }
+  },
+  "59P4": {
+    "suggest_if_missing": [],
+    "freq": 9,
+    "top_pairs": {}
+  },
+  "291": {
+    "suggest_if_missing": [],
+    "freq": 14,
+    "top_pairs": {}
+  },
+  "67": {
+    "suggest_if_missing": [],
+    "freq": 7,
+    "top_pairs": {}
+  },
+  "300": {
+    "suggest_if_missing": [],
+    "freq": 10,
+    "top_pairs": {}
+  },
+  "68": {
+    "suggest_if_missing": [
+      "288"
+    ],
+    "freq": 129,
+    "top_pairs": {
+      "288": 0.806
+    }
+  },
+  "69": {
+    "suggest_if_missing": [
+      "68",
+      "288"
+    ],
+    "freq": 22,
+    "top_pairs": {
+      "68": 0.955,
+      "288": 0.773
+    }
+  },
+  "289(3)": {
+    "suggest_if_missing": [
+      "80"
+    ],
+    "freq": 1,
+    "top_pairs": {
+      "80": 1.0
+    }
+  },
+  "61": {
+    "suggest_if_missing": [
+      "289(4)"
+    ],
+    "freq": 2,
+    "top_pairs": {
+      "289(4)": 1.0
+    }
+  },
+  "289(5)": {
+    "suggest_if_missing": [],
+    "freq": 8,
+    "top_pairs": {}
+  },
+  "289(6)": {
+    "suggest_if_missing": [],
+    "freq": 6,
+    "top_pairs": {}
+  },
+  "340ter": {
+    "suggest_if_missing": [
+      "83",
+      "339"
+    ],
+    "freq": 6,
+    "top_pairs": {
+      "83": 0.667,
+      "339": 0.667
+    }
+  },
+  "289(7)": {
+    "suggest_if_missing": [
+      "80"
+    ],
+    "freq": 1,
+    "top_pairs": {
+      "80": 1.0
+    }
+  },
+  "86": {
+    "suggest_if_missing": [],
+    "freq": 10,
+    "top_pairs": {}
+  },
+  "390": {
+    "suggest_if_missing": [
+      "59P5",
+      "59P4"
+    ],
+    "freq": 1,
+    "top_pairs": {
+      "59P5": 1.0,
+      "59P4": 1.0
+    }
+  },
+  "81": {
+    "suggest_if_missing": [
+      "288"
+    ],
+    "freq": 14,
+    "top_pairs": {
+      "288": 0.857
+    }
+  },
+  "296": {
+    "suggest_if_missing": [
+      "83"
+    ],
+    "freq": 3,
+    "top_pairs": {
+      "83": 0.667
+    }
+  },
+  "393": {
+    "suggest_if_missing": [],
+    "freq": 35,
+    "top_pairs": {}
+  },
+  "329": {
+    "suggest_if_missing": [],
+    "freq": 102,
+    "top_pairs": {}
+  },
+  "328": {
+    "suggest_if_missing": [],
+    "freq": 95,
+    "top_pairs": {}
+  },
+  "326": {
+    "suggest_if_missing": [],
+    "freq": 141,
+    "top_pairs": {}
+  },
+  "331": {
+    "suggest_if_missing": [
+      "326"
+    ],
+    "freq": 11,
+    "top_pairs": {
+      "326": 1.0
+    }
+  },
+  "337": {
+    "suggest_if_missing": [],
+    "freq": 6,
+    "top_pairs": {}
+  },
+  "335": {
+    "suggest_if_missing": [
+      "83"
+    ],
+    "freq": 48,
+    "top_pairs": {
+      "83": 0.562
+    }
+  },
+  "1(6)": {
+    "suggest_if_missing": [
+      "339",
+      "83"
+    ],
+    "freq": 3,
+    "top_pairs": {
+      "339": 0.667,
+      "83": 0.667
+    }
+  },
+  "339": {
+    "suggest_if_missing": [],
+    "freq": 14,
+    "top_pairs": {}
+  },
+  "342": {
+    "suggest_if_missing": [
+      "1(1)"
+    ],
+    "freq": 3,
+    "top_pairs": {
+      "1(1)": 0.667
+    }
+  },
+  "60": {
+    "suggest_if_missing": [
+      "288",
+      "68"
+    ],
+    "freq": 3,
+    "top_pairs": {
+      "288": 0.667,
+      "68": 0.667
+    }
+  },
+  "343": {
+    "suggest_if_missing": [],
+    "freq": 6,
+    "top_pairs": {}
+  },
+  "84": {
+    "suggest_if_missing": [],
+    "freq": 7,
+    "top_pairs": {}
+  },
+  "87P1": {
+    "suggest_if_missing": [
+      "84"
+    ],
+    "freq": 4,
+    "top_pairs": {
+      "84": 0.75
+    }
+  },
+  "352": {
+    "suggest_if_missing": [],
+    "freq": 52,
+    "top_pairs": {}
+  },
+  "336bis": {
+    "suggest_if_missing": [
+      "335",
+      "83"
+    ],
+    "freq": 7,
+    "top_pairs": {
+      "335": 0.714,
+      "83": 0.571
+    }
+  },
+  "334": {
+    "suggest_if_missing": [],
+    "freq": 80,
+    "top_pairs": {}
+  },
+  "330": {
+    "suggest_if_missing": [
+      "328"
+    ],
+    "freq": 13,
+    "top_pairs": {
+      "328": 0.692
+    }
+  },
+  "62P1": {
+    "suggest_if_missing": [
+      "288",
+      "68"
+    ],
+    "freq": 6,
+    "top_pairs": {
+      "288": 0.833,
+      "68": 0.833
+    }
+  },
+  "297": {
+    "suggest_if_missing": [],
+    "freq": 22,
+    "top_pairs": {}
+  },
+  "82": {
+    "suggest_if_missing": [
+      "80",
+      "288"
+    ],
+    "freq": 7,
+    "top_pairs": {
+      "80": 1.0,
+      "288": 0.857
+    }
+  },
+  "87P2": {
+    "suggest_if_missing": [
+      "297",
+      "84"
+    ],
+    "freq": 1,
+    "top_pairs": {
+      "297": 1.0,
+      "84": 1.0
+    }
+  },
+  "341": {
+    "suggest_if_missing": [],
+    "freq": 174,
+    "top_pairs": {}
+  },
+  "391": {
+    "suggest_if_missing": [],
+    "freq": 7,
+    "top_pairs": {}
+  },
+  "72": {
+    "suggest_if_missing": [
+      "288",
+      "68",
+      "80"
+    ],
+    "freq": 8,
+    "top_pairs": {
+      "288": 0.75,
+      "68": 0.625,
+      "80": 0.625
+    }
+  },
+  "336": {
+    "suggest_if_missing": [],
+    "freq": 6,
+    "top_pairs": {}
+  },
+  "65": {
+    "suggest_if_missing": [
+      "288"
+    ],
+    "freq": 2,
+    "top_pairs": {
+      "288": 1.0
+    }
+  },
+  "1(9)": {
+    "suggest_if_missing": [],
+    "freq": 2,
+    "top_pairs": {}
+  },
+  "59P1": {
+    "suggest_if_missing": [
+      "341"
+    ],
+    "freq": 2,
+    "top_pairs": {
+      "341": 1.0
+    }
+  },
+  "360": {
+    "suggest_if_missing": [],
+    "freq": 7,
+    "top_pairs": {}
+  },
+  "358": {
+    "suggest_if_missing": [],
+    "freq": 8,
+    "top_pairs": {}
+  }
+}
