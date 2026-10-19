@@ -1,5 +1,4 @@
-# Niti-Liability-LLM
-
+# niti-liability-llm
 
 **ระบบวิเคราะห์ฐานความผิดทางอาญาด้วย LLM | Criminal Liability Analysis System**
 
@@ -11,14 +10,24 @@
 
 ## Results
 
+### Test Set (965 คดี — Final Evaluation)
 | Metric | Value |
 |--------|-------|
-| **F1 Score** (Test Set) | **0.5068** |
-| **JSON Validity** | **100%** |
-| **Precision** | 0.5412 |
-| **Recall** | 0.4881 |
-| **Test Cases** | 965 คดี |
-| **Dev Cases** | 81 คดี |
+| **F1 Score** | **0.5068** |
+| **JSON Validity** | **100.0%** (965/965) |
+| **System Errors** | 0 คดี (0.0%) |
+| **Empty Predictions** | 0 คดี (0.0%) |
+| **Zero-F1 Cases** | 257 คดี |
+| **Execution Time** | 1076.4s (~18 นาที) |
+
+### Dev Set (81 คดี — Validation)
+| Metric | Value |
+|--------|-------|
+| **F1 Score** | 0.4208 |
+| **Precision** | 0.4712 |
+| **Recall** | 0.4202 |
+| **JSON Validity** | 100.0% (81/81) |
+| **Execution Time** | 117.12s |
 
 *ประเมินบน TSCC Dataset (Thai Supreme Court Cases) — คดีศาลฎีกาไทย*
 
@@ -203,17 +212,18 @@ TSCC Judgement (1,207 คดี)
 
 | Step | รายละเอียด |
 |------|-----------|
-| **Step 8** | Validation Layer: Pydantic Schema + `compute_f1_sections()` |
-| **Step 9** | Dev Set Evaluation: 81 คดี แบบ Sequential พร้อมบันทึก checkpoint |
-| **Step 10** | Error Analysis: แยกประเภท CORRECT / HALLUCINATION / WRONG_SECTION / INCOMPLETE / PARTIAL |
-| **Step 11** | Companion Table: สร้าง Co-occurrence Matrix จากคดีทั้งหมด หา threshold=0.55 |
+| **Step 8** | Validation Layer: Pydantic Schema (`LLMOutput`) + `compute_f1_sections()` |
+| **Step 9** | Dev Set Evaluation: 81 คดี แบบ Parallel (ThreadPoolExecutor, 10 workers) พร้อมคำนวณ Precision, Recall, F1 และ Error Analysis |
+| **Step 10** | Error Analysis: จำแนกประเภทความผิดพลาด (INCOMPLETE 37.0%, WRONG_SECTION 24.7%, HALLUCINATION 14.8%, CORRECT 13.6%, PARTIAL 9.9%) |
+| **Step 11** | Companion Table: สร้าง Co-occurrence Matrix จากคดีทั้งหมด หา threshold=0.55 สำหรับมาตราที่มักเกิดคู่กัน |
 | **Step 12** | Companion Verify: LLM Cross-check มาตราที่ควรมาคู่กัน ก่อนเพิ่มเข้า prediction |
 
-### Phase 4: Final Evaluation
+### Phase 4: Final Evaluation & Recovery
 
 | Step | รายละเอียด |
 |------|-----------|
-| **Step 13** | Test Set Evaluation: 965 คดี แบบ Parallel (ThreadPoolExecutor, 10 workers) + Companion Check |
+| **Step 13** | Test Set Evaluation: 965 คดี แบบ Parallel (10 workers) + Multi-tier Auto-Recovery + Companion Verify |
+| **Step 14** | Re-check & Post-Analysis: ตรวจสอบ System Errors, Zero-F1 cases (257 คดี) และ Retry คดีที่ Timeout/Error |
 
 ---
 
@@ -285,27 +295,41 @@ adjusted_confidence = llm_confidence
 
 ```
 niti-liability-llm/
-├── niti-liability-llm.ipynb   # Pipeline หลัก 13 Steps (Kaggle)
-├── app.py                     # Gradio Demo (HuggingFace Spaces)
-├── tscc_v0.1-law.csv          # ตัวบทกฎหมาย (จาก TSCC Dataset)
-├── companion_table.json       # Co-occurrence Table (สร้างใน Step 11)
-├── chroma_db/                 # ChromaDB Persistent Index
-└── embed_model_cache/         # Cached Embedding Model
+├── app.py                     # Gradio Web Application (Production / HuggingFace Spaces)
+├── companion_table.json       # Co-occurrence statistical table for companion sections
+├── tscc_v0.1-law.csv          # ประมวลกฎหมายอาญาฉบับตั้งต้น (TSCC Dataset)
+├── requirements.txt           # รายการแพ็กเกจที่ต้องติดตั้งตามเวอร์ชันจริง
+├── chroma_db/                 # ChromaDB Persistent Vector Index (tscc_law_primary & iapp_criminal_secondary)
+├── niti-liability-llm-v2.ipynb# Notebook ทดลองโมเดลและ Pipeline ล่าสุด (Legal Syllogism)
+├── niti-liability-llm.ipynb   # Notebook สำหรับ Pipeline หลักและการทำ Benchmark Evaluation
+└── ipynb/                     # โฟลเดอร์เก็บประวัติการทดลองและพัฒนาในขั้นตอนต่างๆ
 ```
 
 ---
 
-## Gradio Demo
+## Gradio Demo & Quickstart
 
-Demo พร้อมใช้งานบน HuggingFace Spaces โดย `app.py` รวม pipeline ทั้งหมดไว้ครบ ได้แก่ Dual Retrieval, Anchor Rules, Force Choice Retry, Companion Check และแสดงผล **มาตราใกล้เคียง** พร้อม % score จาก retrieval จริง
+สามารถรัน Web App บนเครื่อง Local หรือ Deploy บน HuggingFace Spaces:
+
+### 1. ติดตั้ง Dependencies
 
 ```bash
-pip install gradio openai chromadb sentence-transformers pythainlp rank_bm25 pandas
-export TYPHOON_API_KEY="your_key_here"
-python app.py
+pip install -r requirements.txt
 ```
 
----
+> **หมายเหตุสำหรับ Linux:** ใน `requirements.txt` มีการระบุ `pysqlite3-binary` เพื่อรองรับ SQLite บน Linux/HuggingFace Spaces ให้ตรงตามข้อกำหนดของ ChromaDB
+
+### 2. ตั้งค่า Environment Variable และรันระบบ
+
+```bash
+# Windows PowerShell
+$env:TYPHOON_API_KEY="your_api_key_here"
+python app.py
+
+# Linux / macOS
+export TYPHOON_API_KEY="your_api_key_here"
+python app.py
+```
 
 ## Limitations
 
@@ -363,14 +387,12 @@ python app.py
 
 ---
 
-
 ## 🔗 External Resources
 
-เราได้จัดเตรียมช่องทางสำหรับการศึกษาโค้ดและการใช้งานระบบไว้ดังนี้ครับ:
+- **💻 Implementation Details:** ดูขั้นตอนการทำ Pipeline และการทดลองทั้งหมดได้ที่ [Kaggle Notebook](https://www.kaggle.com/code/duckermaster/niti-liability-llm)
+- **⚖️ Live Demo:** ทดลองใช้งานระบบวิเคราะห์คดีได้ที่ [Hugging Face Space](https://huggingface.co/spaces/DuckerMaster/niti-liability-llm)
 
-*   **💻 Implementation Details:** ดูขั้นตอนการทำ Pipeline และการทดลองทั้งหมดได้ที่ [Kaggle Notebook](https://www.kaggle.com/code/duckermaster/niti-liability-llm)
-*   **⚖️ Live Demo:** ทดลองใช้งานระบบวิเคราะห์คดีได้ที่ [Hugging Face Space](https://huggingface.co/spaces/DuckerMaster/niti-liability-llm)
-
+---
 
 ## License
 
