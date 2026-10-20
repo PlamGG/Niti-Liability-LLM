@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+
+# Environment & Secrets
+.env
+.env.*
+
+# Deployment / Temporary Folders
+hf_space_v2/
+*.log
+
+# Personal Notes / Scratch
+PROJECT_OBJECTIVES.txt
+Niti_Liability_LLM_Report.pdf
+*.pdf
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+ipynb/
