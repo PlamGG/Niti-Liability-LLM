@@ -7,6 +7,9 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Benchmark TSCC](https://img.shields.io/badge/TSCC%20Dataset-965%20Cases-green.svg)](https://github.com/KevinMercury/tscc-dataset)
 
+> 🚀 **ทดลองใช้งานระบบวินิจฉัยจริง (Live Interactive Demo):**  
+> สามารถทดลองป้อนข้อเท็จจริงคดีหรือกดทดสอบพรีเซ็ตมาตรฐานบนเว็บได้ทันทีที่ 👉 **[Hugging Face Spaces: Niti Liability LLM v2](https://huggingface.co/spaces/DuckerMaster/niti-liability-llm-v2)**
+
 ---
 
 ## 📖 สารบัญ (Table of Contents)
