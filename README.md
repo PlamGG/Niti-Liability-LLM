@@ -1,14 +1,14 @@
-# ⚖️ Niti Liability LLM: Legal Syllogism & Precision Fast-Path
+# ⚖️ Niti-Criminal-RAG: Legal Syllogism & Precision Fast-Path
 > **ระบบปัญญาประดิษฐ์วินิจฉัยความรับผิดทางอาญาจากข้อเท็จจริงคดีศาลฎีกาไทย (TSCC Benchmark)**  
 > สถาปัตยกรรมระดับ Production (Zero Fine-Tuning) ขับเคลื่อนด้วย OpenTyphoon 30B API + BGE-Reranker + ChromaDB + Legal Syllogism Reasoning
 
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces%20v2.0-blue)](https://huggingface.co/spaces/DuckerMaster/niti-liability-llm-v2)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces%20v2.0-blue)](https://huggingface.co/spaces/DuckerMaster/Niti-Criminal-RAG-V2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Benchmark TSCC](https://img.shields.io/badge/TSCC%20Dataset-965%20Cases-green.svg)](https://github.com/KevinMercury/tscc-dataset)
 
 > 🚀 **ทดลองใช้งานระบบวินิจฉัยจริง (Live Interactive Demo):**  
-> สามารถทดลองป้อนข้อเท็จจริงคดีหรือกดทดสอบพรีเซ็ตมาตรฐานบนเว็บได้ทันทีที่ 👉 **[Hugging Face Spaces: Niti Liability LLM v2](https://huggingface.co/spaces/DuckerMaster/niti-liability-llm-v2)**
+> สามารถทดลองป้อนข้อเท็จจริงคดีหรือกดทดสอบพรีเซ็ตมาตรฐานบนเว็บได้ทันทีที่ 👉 **[Hugging Face Spaces: Niti-Criminal-RAG-V2](https://huggingface.co/spaces/DuckerMaster/Niti-Criminal-RAG-V2)**
 
 ---
 
@@ -35,7 +35,7 @@
 2. **ขาดการแจกแจงองค์ประกอบความผิด**: ให้เพียงข้อสรุปเลขมาตรา แต่ไม่แจกแจงองค์ประกอบภายนอก เจตนาภายใน หรือเหตุยกเว้นโทษ
 3. **การหลุดหายของมาตราเกี่ยวเนื่อง**: มาตราประกอบสำคัญ เช่น พยายามกระทำความผิด (ม.80) หรือตัวการร่วม (ม.83) มักหลุดหายไประหว่างขั้นตอนค้นหา
 
-**Niti Liability LLM v2** ได้รับการออกแบบขึ้นเพื่อแก้ไขข้อจำกัดดังกล่าว โดยใช้สถาปัตยกรรม **Zero Fine-Tuning Legal RAG** ที่ผสานการทำงานของ **Hybrid Retrieval (ChromaDB + BM25)**, **Cross-Encoder Reranker**, **การให้เหตุผลตามหลักตรรกวิทยาทางนิติศาสตร์ (Legal Syllogism)**, และ **Domain Decision Gates** เพื่อสร้างระบบที่ให้คำตอบแม่นยำ โปร่งใส และพร้อมนำไปใช้งานจริง
+**Niti-Criminal-RAG v2** ได้รับการออกแบบขึ้นเพื่อแก้ไขข้อจำกัดดังกล่าว โดยใช้สถาปัตยกรรม **Zero Fine-Tuning Legal RAG** ที่ผสานการทำงานของ **Hybrid Retrieval (ChromaDB + BM25)**, **Cross-Encoder Reranker**, **การให้เหตุผลตามหลักตรรกวิทยาทางนิติศาสตร์ (Legal Syllogism)**, และ **Domain Decision Gates** เพื่อสร้างระบบที่ให้คำตอบแม่นยำ โปร่งใส และพร้อมนำไปใช้งานจริง
 
 ---
 
@@ -164,8 +164,8 @@ flowchart TD
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/PlamGG/Niti-Liability-LLM.git
-cd Niti-Liability-LLM
+git clone https://github.com/PlamGG/Niti-Criminal-RAG.git
+cd Niti-Criminal-RAG
 
 # 2. ติดตั้ง Dependencies
 pip install -r requirements.txt
@@ -185,14 +185,14 @@ python app.py
 ## 📁 โครงสร้างไฟล์
 
 ```text
-niti-liability-llm/
+niti-criminal-rag/
 ├── app.py                         # ระบบ Web Dashboard (Gradio 3-Tier UI + ZeroGPU Support)
 ├── requirements.txt               # Dependencies ที่ตรึงเวอร์ชันไว้
 ├── tscc_v0.1-law.csv              # ประมวลกฎหมายอาญา (Master Penal Code 122 มาตรา)
 ├── companion_table.json           # ตารางความถี่ของกฎหมายคู่หู
 ├── chroma_db/                     # โฟลเดอร์ฐานข้อมูลเวกเตอร์กฎหมาย
-├── niti-liability-llm-v2.ipynb    # โน้ตบุ๊กงานวิจัยฉบับสมบูรณ์ 13 Phases พร้อมผลการทดสอบจริง
-├── niti-liability-llm.ipynb       # โน้ตบุ๊กทดลอง Baseline v1.0
+├── niti-criminal-rag-v2.ipynb    # โน้ตบุ๊กงานวิจัยฉบับสมบูรณ์ 13 Phases พร้อมผลการทดสอบจริง
+├── niti-criminal-rag.ipynb       # โน้ตบุ๊กทดลอง Baseline v1.0
 ├── LICENSE                        # สัญญาอนุญาตแบบ MIT
 └── README.md                      # เอกสารสรุปโครงการและบันทึกประวัติการพัฒนา
 ```
@@ -201,4 +201,4 @@ niti-liability-llm/
 
 ## ⚖️ ข้อจำกัดความรับผิดชอบ
 
-ระบบ **Niti Liability LLM** ถูกพัฒนาขึ้นเพื่อการวิจัยทางวิศวกรรมปัญญาประดิษฐ์และการประมวลผลภาษาธรรมชาติด้านนิติศาสตร์ (Legal NLP) เพื่อใช้เป็นเครื่องมือสนับสนุนการค้นคว้าและตรวจทานสำนวนคดีเบื้องต้นเท่านั้น มิได้มีวัตถุประสงค์เพื่อทดแทนการให้คำปรึกษาทางกฎหมายของผู้ประกอบวิชาชีพทนายความ หรือการใช้ดุลพินิจของผู้พิพากษาศาลยุติธรรม
+ระบบ **Niti-Criminal-RAG** ถูกพัฒนาขึ้นเพื่อการวิจัยทางวิศวกรรมปัญญาประดิษฐ์และการประมวลผลภาษาธรรมชาติด้านนิติศาสตร์ (Legal NLP) เพื่อใช้เป็นเครื่องมือสนับสนุนการค้นคว้าและตรวจทานสำนวนคดีเบื้องต้นเท่านั้น มิได้มีวัตถุประสงค์เพื่อทดแทนการให้คำปรึกษาทางกฎหมายของผู้ประกอบวิชาชีพทนายความ หรือการใช้ดุลพินิจของผู้พิพากษาศาลยุติธรรม
